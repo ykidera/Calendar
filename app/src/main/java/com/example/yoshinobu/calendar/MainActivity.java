@@ -7,6 +7,9 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+
+import com.alamkanak.weekview.WeekView;
 
 import java.util.ArrayList;
 
@@ -14,6 +17,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     private static final String TAG = MonthFragment.class.getSimpleName();
 
     Globals globals;
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +35,28 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
                 startActivity(i);
             }
         });
+        Button dayBtn = (Button)findViewById(R.id.dayBtn);
+        dayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "dayBtn onClick");
+                setDayPage();
+            }
+        });
 
 
         setMonthPage();
     }
+    public void setDayPage() {
+        FrameLayout mainFrame = (FrameLayout) findViewById(R.id.mainFrame);
+        WeekView weekview = new WeekView(this);
+        mainFrame.addView(weekview);
+    }
     public void setMonthPage(){
+        FrameLayout mainFrame = (FrameLayout) findViewById(R.id.mainFrame);
+        viewPager = new ViewPager(this);
+        mainFrame.addView(viewPager);
+        viewPager.setId(R.id.viewpager);
         ArrayList<Integer> items = new ArrayList<Integer>();
         items.add(0);
         items.add(1);
@@ -44,10 +65,9 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         MonthPagerAdapter adapter = new MonthPagerAdapter(getSupportFragmentManager());
         adapter.addAll(items);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(1);
-        viewPager.setOnPageChangeListener(this);
+        //viewPager.setOnPageChangeListener(this);
     }
 
     @Override
@@ -62,7 +82,6 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     @Override
     public void onPageScrollStateChanged(int state) {
         if (state == ViewPager.SCROLL_STATE_IDLE) {
-            ViewPager viewPager = (ViewPager)findViewById(R.id.viewPager);
             MonthPagerAdapter adapter = (MonthPagerAdapter) viewPager.getAdapter();
 
             ArrayList<Integer> indexes = adapter.getAll();
