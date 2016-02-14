@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Calendar</string>
+    <string name="btn1">設定</string>
+    <string name="btn2">月</string>
+    <string name="btn3">週</string>
+    <string name="btn4">日</string>
+    <string name="btn5">予定を作成</string>
+    <string name="left"><![CDATA[<<]]></string>
+    <string name="right"><![CDATA[>>]]></string>
+    <string name="yearmonth">2016年2月</string>
+    <string name="format_month_year">yyyy年MM月</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="week0">日</string>
+    <string name="week1">月</string>
+    <string name="week2">火</string>
+    <string name="week3">水</string>
+    <string name="week4">木</string>
+    <string name="week5">金</string>
+    <string name="week6">土</string>
+</resources>

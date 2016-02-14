@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="weekStartEntries">
+        <item>日曜日</item>
+        <item>月曜日</item>
+    </string-array>
+    <string-array name="weekStartEntryValues">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>

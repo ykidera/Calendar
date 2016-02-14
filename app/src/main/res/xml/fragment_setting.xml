@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="アプリケーション">
+        <Preference
+            android:title="バージョン"
+            android:summary="0.0.1"/>
+        <Preference
+            android:title="よくある質問"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="カレンダー">
+        <Preference
+            android:title="カレンダー"/>
+        <ListPreference
+            android:key="weekStart"
+            android:dialogTitle="選択してください"
+            android:entries="@array/weekStartEntries"
+            android:entryValues="@array/weekStartEntryValues"
+            android:title="週開始日"
+            android:summary="日曜日"/>
+        <Preference
+            android:title="時刻の入力形式"
+            android:summary="9:30午前,10:30午後"/>
+        <Preference
+            android:title="色テーマ"
+            android:summary="デフォルト"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
